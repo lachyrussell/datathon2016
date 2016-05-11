@@ -11,9 +11,6 @@ rm(list=ls())
 setwd("C:/Users/lachyrussell/Desktop/Final/")
 set.seed(100)
 
-#Needed <- c("tm", "SnowballCC", "RColorBrewer", "ggplot2", "wordcloud", "biclust", "cluster", "igraph", "fpc")   
-#install.packages(Needed, dependencies=TRUE)   
-#install.packages("Rcampdf", repos = "http://datacube.wu.ac.at/", type = "source")  
 library(data.table)
 library(xgboost)
 library(readr)
@@ -23,27 +20,22 @@ library(car)
 library(caTools)
 library(ggplot2)
 library(tm)
-library(SnowballC) # for stemming 
+library(SnowballC) 
 library(magrittr)
 library(Matrix)
 library(RODBC)
 library(irlba)
 library(plyr)
+
 ##SQL Server Linked see documentation.
 #https://andersspur.wordpress.com/2013/11/26/connect-r-to-sql-server-2012-and-14/
 
 #read in the data from SQL database
 
-
 odbcChannel <- odbcConnect("datathon2016")
 jobs <- sqlFetch(odbcChannel, "joinfeatures")
-#jobs <- sqlFetch(odbcChannel, "joinfeaturessmall")
 #can also remotely write queries: sqlQuery(odbcChannel, "SELECT.......... QUERY")
 #odbcClose(odbcChannel)
-
-#-----------------------------
-#Kaggle submission
-#-----------------------------
 
 #initialise prediction
 jobs$prediction <- 0

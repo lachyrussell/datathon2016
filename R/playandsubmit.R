@@ -5,9 +5,6 @@ rm(list=ls())
 setwd("C:/Users/lachyrussell/Desktop/Final/")
 set.seed(100)
 
-#Needed <- c("tm", "SnowballCC", "RColorBrewer", "ggplot2", "wordcloud", "biclust", "cluster", "igraph", "fpc")   
-#install.packages(Needed, dependencies=TRUE)   
-#install.packages("Rcampdf", repos = "http://datacube.wu.ac.at/", type = "source")  
 library(data.table)
 library(xgboost)
 library(readr)
@@ -34,7 +31,7 @@ xgb <- xgboost(data = combined,
                   gamma= 0,
                   eval_metric = "auc",
                   max.depth = 6,
-                  eta =.5,
+                  eta =.3,
                   early.round.stop = 3,
                   subsample = 0.8,
                   colsample_bytree =0.8,
@@ -140,6 +137,6 @@ GINI
 scoreRowsnew <- which(jobsnew$hat == -1)
 submission <- jobsnew[scoreRowsnew,c('job_id','prediction')]
 colnames(submission) <- c('job_id','HAT')
-myOutputFile <- paste("C:/Users/lachyrussell/Desktop/Datathon/","R_predictionNew5.csv",sep="")
+myOutputFile <- paste("C:/Users/lachyrussell/Desktop/Datathon/","R_prediction.csv",sep="")
 write.csv(submission,myOutputFile,row.names = FALSE,quote=FALSE)
 

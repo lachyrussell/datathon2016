@@ -5,9 +5,6 @@ rm(list=ls())
 setwd("C:/Users/lachyrussell/Desktop/Final/")
 set.seed(100)
 
-#Needed <- c("tm", "SnowballCC", "RColorBrewer", "ggplot2", "wordcloud", "biclust", "cluster", "igraph", "fpc")   
-#install.packages(Needed, dependencies=TRUE)   
-#install.packages("Rcampdf", repos = "http://datacube.wu.ac.at/", type = "source")  
 library(data.table)
 library(xgboost)
 library(readr)
@@ -63,7 +60,6 @@ a0d<-DocumentTermMatrix(docstitle, control = list(dictionary = titlewordsd, glob
 a00a<-DocumentTermMatrix(docstitle, control = list(dictionary = titlewords2a, global = c("50","Inf")))
 a00b<-DocumentTermMatrix(docstitle, control = list(dictionary = titlewords2b, global = c("50","Inf")))
 a00c<-DocumentTermMatrix(docstitle, control = list(dictionary = titlewords2c, global = c("50","Inf")))
-
 
 # see how many docs and how many terms in the matrix
 
@@ -738,14 +734,9 @@ r01 <- as(r01, "dgCMatrix")
 
 rm(docsraw_job_type)
 
-#remove all the collected stuff except keywords e.g. abstractwords2a)
-rm(list=ls())
-load(file = "c.RData")
-load(file = "c0.RData")
-load(file = "trouble.RData")
-load(file = "trouble2.RData")
-load(file = "trouble3.RData")
-load(file = "intermed6.RData")
+#rm(.............) #remove all the useless intermediate stuff
+
+
 combined <- cbind(a01a,a01b,
                   a01c,a01d,a001a,a001b,
                   a001c,b001a,b001b,b01,

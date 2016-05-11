@@ -480,6 +480,6 @@ b4 <- subset(a4, goodwordspredictorw>=0.95) #this can be changed
 b4 <- t(b4)
 locationwords2 <- colnames(b4)
 
-#remove all the collected stuff except keywords e.g. abstractwords2a)
+#rm(.............) #remove all the useless intermediate stuff except keyword vectors e.g. abstractwords2a
 
 save.image(file = "preliminarytextmining.RData")

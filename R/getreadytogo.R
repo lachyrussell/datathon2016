@@ -5,9 +5,7 @@ rm(list=ls())
 setwd("C:/Users/lachyrussell/Desktop/Final/")
 set.seed(100)
 
-#Needed <- c("tm", "SnowballCC", "RColorBrewer", "ggplot2", "wordcloud", "biclust", "cluster", "igraph", "fpc")   
-#install.packages(Needed, dependencies=TRUE)   
-#install.packages("Rcampdf", repos = "http://datacube.wu.ac.at/", type = "source")  
+ 
 library(data.table)
 library(xgboost)
 library(readr)
@@ -26,6 +24,7 @@ library(plyr)
 
 load(file="jobs.RData")
 load(file="bigmatrix.RData")
+
 # one-hot-encoding categorical features
 #---------------------------------------
 cleanjobs = c(colnames(jobs[1]),colnames(jobs[5]),colnames(jobs[6]),colnames(jobs[9]),colnames(jobs[11]),colnames(jobs[12]))
